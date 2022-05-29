@@ -2,18 +2,14 @@ import React from 'react'
 import {
   Routes,
   Route,
-  Link
 } from "react-router-dom";
-import LoginPage from './components/Login'
-import Registration from './components/Registration'
+import LoginPage from './components/Login/index.js'
+import Registration from './components/Registration/index.js'
+import './app.scss'
 
 function App() {
   return (
     <>
-      <div>
-        <Link to='/'>Login Page </Link>
-        <Link to='/registration'>Registration</Link>
-      </div>
       <Routes>
        <Route path="/" element={ <LoginPage/> }/>
        <Route path="/registration" element={ <Registration/> }/>
