@@ -4,8 +4,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import LoginPage from './Components/Login/index.js'
-import Registration from './Components/Registration/index.js' 
+import LoginPage from './components/Login'
+import Registration from './components/Registration'
 
 function App() {
   return (
