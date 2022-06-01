@@ -1,5 +1,7 @@
-import React from "react"
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import axios from 'axios';
+import validator from 'validator';
 import { Link } from "react-router-dom";
 import "./style.scss";
 
@@ -10,15 +12,14 @@ export default function Registration() {
   return (
     <div className="test">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input placeholder='hui' type='text' {...register('first_name', { required: true })}/>
-        <input type='text' {...register('last_name', { required: true })}/>
-        <input type='email' {...register('email', { required: true })}/>
+        <input placeholder='First name' type='text' {...register('first_name', { required: true })}/>
+        <input placeholder='Last name' type='text' {...register('last_name', { required: true })}/>
+        <input placeholder='E-mail' type='email' {...register('email', { required: true })}/>
         {errors.email && <span>Please enter a valid E-mail address.</span>}
-        <input type='password' {...register('password', { required: true })}/>
+        <input placeholder='Password' type='password' {...register('password', { required: true })}/>
         <button>Submit</button>
         <div>
           <Link to='/'>Login Page </Link>
-          <Link to='/registration'>Registration</Link>
         </div>
       </form>
     </div>
