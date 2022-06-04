@@ -1,0 +1,103 @@
+.header {
+  background-color: #353535;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  border-bottom: 0.3rem solid #F3DC62;
+  &__container {
+    max-width: 128rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__logo{
+    width: 8rem;
+    height: auto;
+  }
+  &__left-block {
+    display: flex;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 15rem;
+      height: 20rem;
+      left: -3.5rem;
+      top: -4.5rem;
+      background: rgba(245, 233, 168, 0.3);
+      filter: blur(6rem);
+    }
+  }
+  &__links {
+    display: flex;
+    align-items: center;
+    margin-left: 15rem;
+    &__link {
+      margin-right: 5rem;
+      opacity: 0.7;
+      cursor: pointer;
+      &--active {
+        color: #F3DC62;
+        opacity: 1;
+      }
+      &--dropdown {
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          width: 0; 
+          height: 0; 
+          border-left: 0.5rem solid transparent;
+          border-right: 0.5rem solid transparent;
+          border-top: 0.5rem solid #fff;
+          top: 0.8rem;
+          right: -1.5rem;
+        }
+      }
+    }
+  }
+  &-profile {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20rem;
+      height: 15rem;
+      left: 4rem;
+      background: rgba(245, 233, 168, 0.46);
+      filter: blur(5rem);
+      top: 0;
+    }
+    &__avatar {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 3rem;
+      background-color: #fff;
+      margin-left: 2rem;
+    }
+    &-dropdown {
+      position: absolute;
+      background-color: #fff;
+      border-radius: 1rem;
+      padding: 2rem 4rem;
+      color: #151515;
+      top: 9rem;
+      &__item {
+        display: flex;
+        align-items: center;
+        &__icon {
+          margin-right: 1rem;
+        }
+        &--exit {
+          color: #DB3636;
+        }
+      }
+    }
+  }
+}
