@@ -1,7 +1,10 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom'
 import { axiosInstance } from '../../services/axios'
+import FormInput from '../shared/BaseForm/FormInput';
+import { BaseForm } from '../shared/BaseForm';
+import { LoginFormActions } from './LoginFormActions';
+import Logo from '../../assets/images/logo.svg'
 import './style.scss'
 
 export default function LoginPage() {
@@ -10,15 +13,15 @@ export default function LoginPage() {
   
   return (
     <div className='site-background'>
-      <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-        <input placeholder='E-mail' type='email' {...register('email', { required: true })}/>
-        {errors.email && <span>Please enter a valid E-mail address.</span>}
-        <input placeholder='Password' type='password' {...register('password', { required: true })}/>
-        <button>Submit</button>
-        <div>
-          <Link to='/registration'>Registration</Link>
+      <h1 className='base-greeting'>Welcome to Hooli!</h1>
+      <BaseForm onSubmit={handleSubmit(onSubmit)}>
+        <img src={Logo} className="base-form__logo"/>
+        <div className="base-form__inputs">
+          <FormInput name="email" required register={register} placeholder="E-mail" hasError={errors.email}/>
+          <FormInput name="password" required register={register} placeholder="Password" hasError={errors.password}/>
         </div>
-      </form>
+        <LoginFormActions/>
+      </BaseForm>
     </div>
   );
 }

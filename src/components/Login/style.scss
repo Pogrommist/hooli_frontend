@@ -8,8 +8,12 @@
 
 .site-background {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   height: 100%;
   background-image: url('/assets/images/Background.svg');
   padding-top: 2rem;
+}
+
+.base-greeting {
+  color: #fff;
 }
