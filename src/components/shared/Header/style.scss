@@ -85,17 +85,26 @@
       position: absolute;
       background-color: #fff;
       border-radius: 1rem;
-      padding: 2rem 4rem;
       color: #151515;
       top: 9rem;
+      z-index: 1;
       &__item {
         display: flex;
-        align-items: center;
+        padding: 1rem 3rem;
+        &:last-child {
+          color: #DB3636;
+        }
+        &:hover {
+          background-color: #F5E9A8;
+          &:first-child {
+            border-radius: 1rem 1rem 0 0;
+          }
+          &:last-child {
+            border-radius: 0 0 1rem 1rem;
+          }
+        }
         &__icon {
           margin-right: 1rem;
-        }
-        &--exit {
-          color: #DB3636;
         }
       }
     }
