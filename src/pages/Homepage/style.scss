@@ -8,5 +8,36 @@
     max-width: 128rem;
     width: 100%;
     display: flex;
+    color: #fff;
+    margin-top: 5rem;
+    flex-direction: column;
+  }
+  &-strategies-block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    &__status {
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      margin-right: 5rem;
+    }
+    &-actions {
+      display: flex;
+      font-size: 2rem;
+      align-items: center;
+      &__name {
+        color: #E8AB4F;
+        margin: 0 1rem;
+      }
+      &__button {
+        cursor: pointer;
+      }
+    }
+  }
+  &-charts {
+    display: flex;
+    margin-top: 10rem;
+    justify-content: space-between;
   }
 }

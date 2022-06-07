@@ -11,12 +11,15 @@ export function ProvideAuth({ children }) {
 export const useAuth = () => useContext(authContext);
 
 function useProvideAuth() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
+
+  const setUserLocal = userData => setUser(userData)
 
   const signIn = async params => {
     const response = await signInRequest(params)
     setUser(response.data);
     localStorage.setItem('token', response.headers.authorization)
+    if (response.data) localStorage.setItem('user', JSON.stringify(response.data))
     return response
   };
   const signUp = async params => {
@@ -29,6 +32,7 @@ function useProvideAuth() {
 
   const logout = callback => {
     localStorage.removeItem('token')
+    localStorage.removeItem('user')
     callback()
   }
 
@@ -37,6 +41,7 @@ function useProvideAuth() {
     signIn,
     signUp,
     logout,
-    validateToken
+    validateToken,
+    setUserLocal
   };
 }

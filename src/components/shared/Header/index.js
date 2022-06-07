@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router';
 
 import Logo from '../../../assets/images/logo.svg'
@@ -15,8 +15,14 @@ import './style.scss'
 
 export default function() {
   const navigate = useNavigate()
-  const { logout, user } = useAuth()
+  const { logout, user, setUserLocal } = useAuth()
   const [profileMenuOpened, setHandleProfileClick] = useState(false);
+
+  useEffect(() => {
+    const localUser = localStorage.getItem('user')
+    if (typeof localUser !== null) setUserLocal(JSON.parse(localUser))
+  }, []);
+
 
   function logoutHandler() {
     return logout(() => navigate('/'))
@@ -30,7 +36,7 @@ export default function() {
     { icon: ExitIcon, alt: 'exit icon', description: 'Exit', className: 'header-profile-dropdown__item__icon', clickHandler: logoutHandler }
   ]
 
-  const { first_name, last_name } = user
+  const { first_name, last_name } = user || null
 
   return(
     <header className="header">
@@ -40,6 +46,7 @@ export default function() {
           <div className="header__links">
             <p className="header__links__link header__links__link--dropdown">Stocks</p>
             <p className="header__links__link header__links__link--active">My Strategies</p>
+            <p className="header__links__link header__links__link">FAQ</p>
           </div>
           </div>
 
