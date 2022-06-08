@@ -26,7 +26,7 @@ export default function Registration() {
           <FormInput type="password" name="password" required register={register} placeholder="Password" hasError={errors.password} />
         </div>
         <RegistrationFormActions />
-      </BaseForm>
+      </BaseForm>        
     </div>
   );
 }

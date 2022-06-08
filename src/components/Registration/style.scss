@@ -1,11 +1,17 @@
-
 .site-background {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   height: 100%;
   background-image: url('/assets/images/Background.svg');
-  padding-top: 2rem;
   background-size: cover;
   background-repeat: no-repeat;
+  align-items: center;
+}
+.base-greeting {
+  font-family: 'Helvetica';
+  color: #fff;
+  margin: 4rem auto;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }

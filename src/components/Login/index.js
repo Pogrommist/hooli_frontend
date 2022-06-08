@@ -14,7 +14,7 @@ export default function LoginPage() {
   return (
     <div className='site-background'>
       <h1 className='base-greeting'>Welcome to Hooli!</h1>
-      <BaseForm onSubmit={handleSubmit(onSubmit)}>
+      <BaseForm className='login-page-form' onSubmit={handleSubmit(onSubmit)}>
         <img src={Logo} className="base-form__logo"/>
         <div className="base-form__inputs">
           <FormInput name="email" required register={register} placeholder="E-mail" hasError={errors.email}/>
