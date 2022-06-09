@@ -3,9 +3,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 2px solid var(--yellow);
+    border: 2px solid var(--energy-yellow);
     padding: 3rem 7rem;
-    background-color: var(--black);
+    background-color: rgba(var(--black--rgb), 0.7);
     border-radius: 0.5rem;
     &__logo {
       width: 8rem;
@@ -55,11 +55,11 @@
         display: flex;
         justify-content: space-around;
         & > a {
-          color: var(--orange);
+          color: var(--tulip-tree);
         }
       }
       &__button {
-        background-color: var(--yellow);
+        background-color: var(--energy-yellow);
         border: none;
         padding: 1rem 2rem;
         width: 100%;
