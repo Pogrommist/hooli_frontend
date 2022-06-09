@@ -7,8 +7,6 @@ import { RegistrationFormActions } from "./RegistrationFormActions";
 import Logo from '../../assets/images/logo.svg'
 import "./style.scss";
 
-// ToDo: Move the input and it's styles into 'shared' folder
-
 
 export default function Registration() {
   const { register, handleSubmit, formState: { errors } } = useForm();
