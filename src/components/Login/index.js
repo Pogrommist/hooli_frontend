@@ -18,7 +18,7 @@ export default function LoginPage() {
         <img src={Logo} className="base-form__logo"/>
         <div className="base-form__inputs">
           <FormInput name="email" required register={register} placeholder="E-mail" hasError={errors.email}/>
-          <FormInput name="password" required register={register} placeholder="Password" hasError={errors.password}/>
+          <FormInput type="password" name="password" required register={register} placeholder="Password" hasError={errors.password}/>
         </div>
         <LoginFormActions/>
       </BaseForm>
