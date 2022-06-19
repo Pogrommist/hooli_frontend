@@ -72,30 +72,5 @@
     display: flex;
     margin-top: 10rem;
     justify-content: space-between;
-    &__candles-datepicker {
-      width: auto;
-      &__button {
-        background-color: transparent;
-        border: none;
-        color: #E8AB4F;
-        cursor: pointer;
-      }
-    }
-    &-actions {
-      display: flex;
-      justify-content: space-between;
-      &-intervals {
-        &__interval {
-          color: #E8AB4F;
-          text-decoration: underline;
-          margin-left: 1rem;
-          cursor: pointer;
-          &--active {
-            color: #F3DC62;
-          }
-        }
-      }
-    }
-
   }
 }
