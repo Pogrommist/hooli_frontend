@@ -23,7 +23,6 @@ export const AppRoutes = () => {
        <Route path="/home" element={<PrivateRoute><Homepage /></PrivateRoute>} />
       </Routes>
     </ProvideAuth>
-  
     </>
   )
 }

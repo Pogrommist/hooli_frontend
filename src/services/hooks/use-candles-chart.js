@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { subDays } from 'date-fns'
-import { axiosInstance } from '../../services/axios';
+import { axiosInstance } from '../axios';
 
 
 export const useCandlesChart = ({ activePair }) => {

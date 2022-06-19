@@ -1,8 +1,9 @@
 import React, { useState, forwardRef } from 'react'
 import { useForm, Controller } from 'react-hook-form'
-import axios from 'axios'
 import Select from "react-select";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
+import { axiosInstance } from '../../services/axios';
+import { Pairs, PairName, ReactDropdownPair } from './types'
 import Header from '../../components/shared/Header';
 import FormInput from '../../components/shared/BaseForm/FormInput';
 import ActiveIcon from '../../assets/images/icons/home/active_icon.svg'
@@ -18,8 +19,8 @@ const data = [{name: '1', btc: -400, eth: -2400, usdt: -2400}, {name: '2', btc: 
 export default function Homepage() {
   const { register, handleSubmit, formState: { errors } } = useForm()
   const { control, handleSubmit: onSubmitPair } = useForm()
-  const [pairs, setPairs] = useState([])
-  const [activePair, setActivePair] = useState(null);
+  const [pairs, setPairs] = useState<Array<Pairs>>([])
+  const [activePair, setActivePair] = useState<string | null>(null);
 
   const renderLineChart = (
     <LineChart width={400} height={150} data={data}>
@@ -33,15 +34,15 @@ export default function Homepage() {
     </LineChart>
   )
 
-  const formatPairs = pairs => {
+  const formatPairs = (pairs:[Pairs]) => {
     const pairsFormatted = []
     pairs.map(pair => pairsFormatted.push({value: `${pair.baseAsset}${pair.quoteAsset}`, label: `${pair.baseAsset} - ${pair.quoteAsset}`}))
     return setPairs(pairsFormatted)
   }
 
-  const handlePairSearch = pair => axios.get(`http://localhost:3000/binances/get_pairs_by_token?pair_name=${pair.pair_name}`).then(res => formatPairs(res.data))
+  const handlePairSearch = (pair: PairName) => axiosInstance.get(`http://localhost:3000/binances/get_pairs_by_token?pair_name=${pair.pair_name}`).then(res => formatPairs(res.data))
 
-  const handlePairSelect = pair => setActivePair(pair.value)
+  const handlePairSelect = (pair: ReactDropdownPair) => setActivePair(pair.value)
 
   return (
     <>
