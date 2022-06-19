@@ -57,7 +57,7 @@ export default function Homepage() {
             <img src={EditIcon} alt="edit strategy" className="homepage-strategies-block-actions__button" />
             <div className="search-form-wrapper">
               <form onSubmit={handleSubmit(handlePairSearch)} className="search-form">
-                <FormInput register={register} name="pair_name" hasError={errors.pair_name} required className="search-form__input" />
+                <FormInput register={register} name="pair_name" hasError={errors.pair_name} required />
                 <button className="search-form__button"><img src={SearchIcon} type="submit" /></button>
               </form>
               {pairs.length > 0 && (

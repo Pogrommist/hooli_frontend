@@ -1,6 +1,8 @@
 .chart-candles {
   &-datepicker {
-    width: auto;
+    &.react-datepicker-wrapper{
+      width: auto;
+    }
     &__button {
       background-color: transparent;
       border: none;
