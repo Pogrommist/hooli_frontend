@@ -5,6 +5,7 @@
   "compilerOptions": {
       "target": "es6",
       "jsx": "react",
-      "allowSyntheticDefaultImports": true
+      "allowSyntheticDefaultImports": true,
+      "moduleResolution": "node"
   }
 }

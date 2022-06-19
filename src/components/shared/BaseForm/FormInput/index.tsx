@@ -3,21 +3,22 @@ import { FieldError } from "react-hook-form";
 import './style.scss'
 
 interface FormInputType {
-	label: string;
+	label?: string;
 	required: boolean;
-	register: func;
+	register: Function;
 	type?: string;
 	name: string;
 	className?: string;
-	placeholder: string;
+	placeholder?: string;
 	hasError: FieldError;
 }
-
-export default function FormInput ({label, required, register, type='text', name, className="base-form__input", placeholder, hasError}:FormInputType): React.FC {
-		  return (
-			<>
-				{label && <label>{label}</label>}
-				<input className={`'base-form__input' ${className} ${hasError ? `${className}--invalid` : ''}`} type={type} placeholder={placeholder} {...register(name, { required })}/>	
-			</>
-		)
+const FormInput:React.FC<FormInputType> = ({label, required, register, type='text', name, className="base-form__input", placeholder, hasError}:FormInputType) => {
+	return (
+	<>
+		{label && <label>{label}</label>}
+		<input className={`'base-form__input' ${className} ${hasError ? `${className}--invalid` : ''}`} type={type} placeholder={placeholder} {...register(name, { required })}/>	
+	</>
+)
 }
+
+export default FormInput

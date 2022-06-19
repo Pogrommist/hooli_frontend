@@ -1,21 +1,21 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { axiosInstance } from '../../services/axios/index.tsx'
-import { BaseForm } from "../shared/BaseForm/index.tsx";
-import FormInput from "../shared/BaseForm/FormInput/index.tsx";
-import { RegistrationFormActions } from "./RegistrationFormActions/index.tsx";
+import { axiosInstance } from '../../services/axios'
+import { BaseForm } from "../shared/BaseForm";
+import FormInput from "../shared/BaseForm/FormInput";
+import { RegistrationFormActions } from "./RegistrationFormActions";
 import Logo from '../../assets/images/logo.svg'
 import "./style.scss";
 
 
-export default function Registration(): React.FC {
+const Registration: React.FC<{}> = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => axiosInstance.post('users/', { user: data })
 
   return (
     <div className='site-background'>
       <h1 className='base-greeting'>Welcome to Hooli!</h1>
-      <BaseForm onSubmit={handleSubmit(onSubmit)} isRegistration>
+      <BaseForm onSubmit={handleSubmit(onSubmit)}>
         <img src={Logo} className="base-form__logo" />
         <div className="base-form__inputs">
           <FormInput name="first_name" required register={register} placeholder="First name" hasError={errors.first_name} />
@@ -28,3 +28,5 @@ export default function Registration(): React.FC {
     </div>
   );
 }
+
+export default Registration
