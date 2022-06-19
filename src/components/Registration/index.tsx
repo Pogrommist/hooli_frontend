@@ -1,14 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { axiosInstance } from '../../services/axios'
-import { BaseForm } from "../shared/BaseForm";
-import FormInput from "../shared/BaseForm/FormInput";
-import { RegistrationFormActions } from "./RegistrationFormActions";
+import { axiosInstance } from '../../services/axios/index.tsx'
+import { BaseForm } from "../shared/BaseForm/index.tsx";
+import FormInput from "../shared/BaseForm/FormInput/index.tsx";
+import { RegistrationFormActions } from "./RegistrationFormActions/index.tsx";
 import Logo from '../../assets/images/logo.svg'
 import "./style.scss";
 
 
-export default function Registration() {
+export default function Registration(): React.FC {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => axiosInstance.post('users/', { user: data })
 
