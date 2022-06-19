@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import {
   Routes,
   Route,
 } from "react-router-dom";
-import LoginPage from './components/Login/index.js'
-import Registration from './components/Registration/index.js'
+import LoginPage from './components/Login'
+import Registration from './components/Registration'
 import './app.scss'
 
-function App() {
+function App () {
   return (
     <>
       <Routes>

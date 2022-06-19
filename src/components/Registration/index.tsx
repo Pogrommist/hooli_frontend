@@ -8,14 +8,14 @@ import Logo from '../../assets/images/logo.svg'
 import "./style.scss";
 
 
-export default function Registration() {
+const Registration: React.FC<{}> = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => axiosInstance.post('users/', { user: data })
 
   return (
     <div className='site-background'>
       <h1 className='base-greeting'>Welcome to Hooli!</h1>
-      <BaseForm onSubmit={handleSubmit(onSubmit)} isRegistration>
+      <BaseForm onSubmit={handleSubmit(onSubmit)}>
         <img src={Logo} className="base-form__logo" />
         <div className="base-form__inputs">
           <FormInput name="first_name" required register={register} placeholder="First name" hasError={errors.first_name} />
@@ -28,3 +28,5 @@ export default function Registration() {
     </div>
   );
 }
+
+export default Registration
