@@ -40,7 +40,7 @@ export default function Homepage() {
     return setPairs(pairsFormatted)
   }
 
-  const handlePairSearch = (pair: PairName) => axiosInstance.get(`http://localhost:3000/binances/get_pairs_by_token?pair_name=${pair.pair_name}`).then(res => formatPairs(res.data))
+  const handlePairSearch = (pair: PairName) => axiosInstance.get(`/binances/get_pairs_by_token?pair_name=${pair.pair_name}`).then(res => formatPairs(res.data))
 
   const handlePairSelect = (pair: ReactDropdownPair) => setActivePair(pair.value)
 
