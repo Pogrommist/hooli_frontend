@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-export function RegistrationFormActions() {
+interface RegistrationFormActionsType {
+	disabled?: boolean
+}
+
+export const RegistrationFormActions:React.FC<RegistrationFormActionsType> = ({ disabled }) => {
 	return(
 		<div className="base-form__actions">
 			<div className="base-form__action_item">
@@ -10,7 +14,7 @@ export function RegistrationFormActions() {
 			</div>
 
 			<div className="base-form__action_item">
-				<button className="base-form__action_item__button">Sign Up</button>
+				<button className="base-form__action_item__button" disabled={disabled}>Sign Up</button>
 			</div>
 
 			<div className="base-form__action_item">
