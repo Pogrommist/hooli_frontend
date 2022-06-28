@@ -1,14 +1,25 @@
 .base-form__input {
 	padding: 0.7rem;
-	margin: 1rem 0;
+	margin: 2rem 0;
 	border-radius: 0.3rem;
 	outline: none;
 	border: 1px var(--white) solid;
-
+	&__error {
+		position: absolute;
+		color: var(--punch);
+		margin-top: -1rem;
+		display: flex;
+		justify-content: flex-end;
+		font-size: 1rem;
+		width: 100%;
+	}
 	&--invalid {
 		border-color: var(--punch);
 	}
 	&--password_field {
 		position: relative;
 	}
+}
+.base-form-input-field {
+	position: relative;
 }
