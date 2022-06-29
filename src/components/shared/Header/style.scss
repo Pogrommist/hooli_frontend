@@ -1,12 +1,12 @@
 .header {
-  background-color: #353535;
+  background-color: var(--mine-shaft);
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  color: #fff;
-  border-bottom: 0.3rem solid #F3DC62;
+  color: var(--white);
+  border-bottom: 0.3rem solid var(--energy-yellow);
   &__container {
     max-width: 128rem;
     width: 100%;
@@ -27,7 +27,7 @@
       height: 20rem;
       left: -3.5rem;
       top: -4.5rem;
-      background: rgba(245, 233, 168, 0.3);
+      background: rgba(var(--sandwisp), 0.3);
       filter: blur(6rem);
     }
   }
@@ -40,7 +40,7 @@
       opacity: 0.7;
       cursor: pointer;
       &--active {
-        color: #F3DC62;
+        color: var(--energy-yellow);
         opacity: 1;
       }
       &--dropdown {
@@ -52,7 +52,7 @@
           height: 0; 
           border-left: 0.5rem solid transparent;
           border-right: 0.5rem solid transparent;
-          border-top: 0.5rem solid #fff;
+          border-top: 0.5rem solid var(--white);
           top: 0.8rem;
           right: -1.5rem;
         }
@@ -70,7 +70,7 @@
       width: 20rem;
       height: 15rem;
       left: 4rem;
-      background: rgba(245, 233, 168, 0.46);
+      background: rgba(var(--sandwisp), 0.46);
       filter: blur(5rem);
       top: 0;
     }
@@ -78,24 +78,24 @@
       width: 5rem;
       height: 5rem;
       border-radius: 3rem;
-      background-color: #fff;
+      background-color: var(--white);
       margin-left: 2rem;
     }
     &-dropdown {
       position: absolute;
-      background-color: #fff;
+      background-color: var(--white);
       border-radius: 1rem;
-      color: #151515;
+      color: var(--cod-gray);
       top: 9rem;
       z-index: 2;
       &__item {
         display: flex;
         padding: 0 3rem;
         &:last-child {
-          color: #DB3636;
+          color: var(--punch);
         }
         &:hover {
-          background-color: #F5E9A8;
+          background-color: var(--sandwisp);
           &:first-child {
             border-radius: 1rem 1rem 0 0;
           }
