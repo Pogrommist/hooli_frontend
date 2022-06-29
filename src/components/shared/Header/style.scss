@@ -1,0 +1,112 @@
+.header {
+  background-color: var(--mine-shaft);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--white);
+  border-bottom: 0.3rem solid var(--energy-yellow);
+  &__container {
+    max-width: 128rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__logo{
+    width: 8rem;
+    height: auto;
+  }
+  &__left-block {
+    display: flex;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 15rem;
+      height: 20rem;
+      left: -3.5rem;
+      top: -4.5rem;
+      background: rgba(var(--sandwisp), 0.3);
+      filter: blur(6rem);
+    }
+  }
+  &__links {
+    display: flex;
+    align-items: center;
+    margin-left: 15rem;
+    &__link {
+      margin-right: 5rem;
+      opacity: 0.7;
+      cursor: pointer;
+      &--active {
+        color: var(--energy-yellow);
+        opacity: 1;
+      }
+      &--dropdown {
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          width: 0; 
+          height: 0; 
+          border-left: 0.5rem solid transparent;
+          border-right: 0.5rem solid transparent;
+          border-top: 0.5rem solid var(--white);
+          top: 0.8rem;
+          right: -1.5rem;
+        }
+      }
+    }
+  }
+  &-profile {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20rem;
+      height: 15rem;
+      left: 4rem;
+      background: rgba(var(--sandwisp), 0.46);
+      filter: blur(5rem);
+      top: 0;
+    }
+    &__avatar {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 3rem;
+      background-color: var(--white);
+      margin-left: 2rem;
+    }
+    &-dropdown {
+      position: absolute;
+      background-color: var(--white);
+      border-radius: 1rem;
+      color: var(--cod-gray);
+      top: 9rem;
+      z-index: 2;
+      &__item {
+        display: flex;
+        padding: 0 3rem;
+        &:last-child {
+          color: var(--punch);
+        }
+        &:hover {
+          background-color: var(--sandwisp);
+          &:first-child {
+            border-radius: 1rem 1rem 0 0;
+          }
+          &:last-child {
+            border-radius: 0 0 1rem 1rem;
+          }
+        }
+        &__icon {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}

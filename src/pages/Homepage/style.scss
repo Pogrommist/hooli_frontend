@@ -1,0 +1,76 @@
+.homepage {
+  background-color: var(--mine-shaft);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-container {
+    max-width: 128rem;
+    width: 100%;
+    display: flex;
+    color: var(--white);
+    margin-top: 5rem;
+    flex-direction: column;
+  }
+  &-strategies-block {
+    display: flex;
+    width: 100%;
+    &__status {
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      margin-right: 5rem;
+    }
+    &-actions {
+      display: flex;
+      font-size: 2rem;
+      align-items: center;
+      position: relative;
+      &__name {
+        color: var(--tulip-tree);
+        margin: 0 1rem;
+      }
+      &__button {
+        cursor: pointer;
+      }
+    }
+    .search-form {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      &-wrapper {
+        margin-left: 10rem;
+        position: relative;
+      }
+      &__button {
+        background: transparent;
+        border: none;
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+      }
+      &-pairs {
+        position: absolute;
+        width: 100%;
+        top: 4rem;
+        background-color: var(--white);
+        border-radius: 0.3rem;
+        color: var(--mine-shaft);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1rem;
+        z-index: 1;
+        &-dropdown {
+          width: 100%;
+        }
+      }
+    }
+  }
+  &-charts {
+    display: flex;
+    margin-top: 10rem;
+    justify-content: space-between;
+  }
+}

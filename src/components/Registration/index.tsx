@@ -1,9 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { axiosInstance } from '../../services/axios'
+import { useNavigate } from "react-router-dom";
 import { BaseForm } from "../shared/BaseForm";
 import FormInput from "../shared/BaseForm/FormInput";
 import { RegistrationFormActions } from "./RegistrationFormActions";
+import { useAuth } from '../../services/hooks/use-auth.js'
 import Logo from '../../assets/images/logo.svg'
 import "./style.scss";
 
@@ -29,7 +30,12 @@ const Registration: React.FC<{}> = () => {
       mode: "onChange"
     }
   );
-  const onSubmit = data => axiosInstance.post('users/', { user: data })
+  const { signUp } = useAuth()
+  const navigate = useNavigate()
+  const onSubmit = async data => {
+    await signUp(data)
+    navigate('/')
+  }
 
   return (
     <div className='site-background'>
