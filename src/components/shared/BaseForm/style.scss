@@ -3,17 +3,31 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 2px solid var(--energy-yellow);
-    padding: 3rem 7rem;
+    border: 4px solid var(--energy-yellow);
+    padding: 3rem 10rem;
     background-color: rgba(var(--black-rgb), 0.7);
-    border-radius: 0.5rem;
+    border-radius: 1.3rem;
+    max-width: 48rem;
+    width: 100%;
+    @include for-phone-only {
+      padding: 3rem 6rem;
+    }
     &__logo {
-      width: 8rem;
-      margin: 0 0 2rem;
+      width: 14rem;
+      margin: 0 0 3rem;
+      @include for-phone-only {
+        width: 10rem;
+      }
     }
     &__inputs {
       display: flex;
       flex-direction: column;
+      width: 100%;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    &-input-field {
+      position: relative;
       width: 100%;
     }
     &__actions {
@@ -30,10 +44,13 @@
       margin: 1rem 0;
       &__checkbox {
         margin-left: 0;
+        margin-right: 2rem;
+        @include for-phone-only {
+          margin-right: 0.5rem;
+        }
       }
       &__forgot {
         color: var(--white);
-        font-size: 1rem;
         opacity: 0.5;
         display: flex;
         justify-content: flex-end;
@@ -41,7 +58,7 @@
       }
       &__text{
         color: var(--white);
-        font-size: 1rem;
+        // font-size: 1rem;
         opacity: 0.7;
         display: flex;
         cursor: default;
@@ -49,11 +66,14 @@
       }
       &__link {
         color: var(--white);
-        font-size: 1rem;
+        font-size: 1.6rem;
+        @include for-phone-only {
+          font-size: 1.2rem; 
+        }
         opacity: 0.7;
         width: 100%;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         & > a {
           color: var(--tulip-tree);
         }
@@ -61,11 +81,17 @@
       &__button {
         background-color: var(--energy-yellow);
         border: none;
-        padding: 1rem 2rem;
         width: 100%;
         border-radius: 0.3rem;
         font-weight: 600;
         cursor: pointer;
+        font-size: 1.8rem;
+        height: 5.8rem;
+        color: var(--black);
+        @include for-phone-only {
+          height: 3.9rem;
+          font-size: 1.4rem;
+        }
       }
     }
   }

@@ -1,4 +1,4 @@
-import React, { ReactNode, FormEventHandler } from "react"
+import React, { ReactNode } from "react"
 import './style.scss'
 
 interface BaseFormType {
@@ -9,7 +9,7 @@ interface BaseFormType {
 
 export const BaseForm:React.FC<BaseFormType> = ({ className, children, onSubmit }) => {
     return (
-      <form className={`base-form ${className}`} onSubmit={onSubmit}>
+      <form className={`base-form ${className || ''}`} onSubmit={onSubmit}>
           {children}
       </form>
     )

@@ -8,10 +8,20 @@
   align-items: center;
 }
 .base-greeting {
-  font-family: 'Helvetica';
   color: var(--white);
   margin: 4rem auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  @include for-phone-only {
+    font-size: 3rem;
+  }
+}
+
+.registration-form {
+  @include for-phone-only {
+    max-width: 32rem;
+    width: 100%;
+  }
+
 }

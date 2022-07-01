@@ -34,8 +34,8 @@ const LoginPage:React.FC<{}> = () => {
       <BaseForm className='login-page-form' onSubmit={handleSubmit(onSubmit)}>
         <img src={Logo} className="base-form__logo"/>
         <div className="base-form__inputs">
-          <FormInput name="email" validation={InputBaseValidation} register={register} placeholder='E-mail' hasError={errors.email} type="email" />
-          <FormInput type="password" validation={InputBaseValidation} name="password" register={register} placeholder="Password" hasError={errors.password}/>
+          <FormInput name="email" validation={InputBaseValidation} register={register} placeholder='E-mail' hasError={errors.email} type="email"/>
+          <FormInput type="password" validation={InputBaseValidation} name="password" register={register} placeholder="Password" hasError={errors.password} className="login-page-form__input"/>
         </div>
         <LoginFormActions disabled={!isValid}/>
       </BaseForm>
