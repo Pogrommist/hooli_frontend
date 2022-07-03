@@ -24,15 +24,15 @@ export default function() {
   }, []);
 
 
-  function logoutHandler() {
-    return logout(() => navigate('/'))
-  }
+  const logoutHandler = () => logout(() => navigate('/'))
+
+  const goToSettings = () => navigate('/account-settings')
 
   const dropdownItems = [
     { icon: ProfileIcon, alt: 'profile icon', description: 'My profile', className: 'header-profile-dropdown__item__icon' },
     { icon: BellIcon, alt: 'bell icon', description: 'Notification', className: 'header-profile-dropdown__item__icon' },
     { icon: WalletIcon, alt: 'wallet icon', description: 'Wallets', className: 'header-profile-dropdown__item__icon' },
-    { icon: GearIcon, alt: 'settings icon', description: 'Settings', className: 'header-profile-dropdown__item__icon' },
+    { icon: GearIcon, alt: 'settings icon', description: 'Settings', className: 'header-profile-dropdown__item__icon', clickHandler: goToSettings },
     { icon: ExitIcon, alt: 'exit icon', description: 'Exit', className: 'header-profile-dropdown__item__icon', clickHandler: logoutHandler }
   ]
 

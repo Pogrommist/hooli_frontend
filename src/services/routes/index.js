@@ -22,7 +22,7 @@ export const AppRoutes = () => {
        <Route path="/" element={<LoginPage/>} /> 
        <Route path="/registration" element={<Registration/>} />
        <Route path="/home" element={<PrivateRoute><Homepage /></PrivateRoute>} />
-       <Route path="/accountsettings" element={<ProfileMenu/>}/>
+       <Route path="/account-settings" element={<ProfileMenu/>}/>
       </Routes>
     </ProvideAuth>
     </>

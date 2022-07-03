@@ -1,4 +1,4 @@
-.accountsettings {
+.account-settings {
   background-color: #353535;
   height: 100%;
   hr {
@@ -25,6 +25,21 @@
         margin: 0 auto;
         display: flex;
         justify-content: center;
+        &__image {
+          display: flex;
+          width: 100%;
+          align-items: flex-end;
+          justify-content: flex-end;
+          position: relative;
+          label {
+            display: block;
+            cursor: pointer;
+          }
+          & > form {
+            position: absolute;
+            bottom: -1rem;
+          }
+        }
       }
       &__name {
         color: var(--white);
@@ -35,16 +50,14 @@
       padding-left: 5.5rem;
       font-size: 2rem;
       &__item {
-        margin: 0;
         display: flex;
-        padding-top: 3.7rem;
-        color: rgba(var(--white-rgb), 0.7);
+        margin: 3.7rem 0 0;
         &:hover {
           color: var(--tulip-tree);
           cursor: pointer;
         }
-        &:last-child {
-          color: var(--punch);
+        &--exit-link {
+          margin-top: 10rem;
         }
         p {
           margin: 0;
@@ -52,6 +65,19 @@
         &__icon {
           margin-left: 1rem;
           height: 1.7rem;
+        }
+        &-link {
+          color: rgba(var(--white-rgb), 0.7);
+          text-decoration: none;
+          &--active {
+            color: var(--tulip-tree)
+          }
+          &__icon {
+            margin-left: 1rem;
+          }
+          &--exit-link {
+            color: var(--punch);
+          }
         }
       }
     }
