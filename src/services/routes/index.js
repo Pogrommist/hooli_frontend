@@ -8,6 +8,7 @@ import {
 import LoginPage from '../../components/Login'
 import Registration from '../../components/Registration'
 import Homepage from '../../pages/Homepage';
+import ProfileMenu from '../../components/shared/ProfileMenu'
 import { ProvideAuth, useAuth } from '../hooks/use-auth';
 
 export const AppRoutes = () => {
@@ -21,6 +22,7 @@ export const AppRoutes = () => {
        <Route path="/" element={<LoginPage/>} /> 
        <Route path="/registration" element={<Registration/>} />
        <Route path="/home" element={<PrivateRoute><Homepage /></PrivateRoute>} />
+       <Route path="/accountsettings" element={<ProfileMenu/>}/>
       </Routes>
     </ProvideAuth>
     </>

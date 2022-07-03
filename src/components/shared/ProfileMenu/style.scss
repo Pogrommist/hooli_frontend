@@ -1,0 +1,59 @@
+.accountsettings {
+  background-color: #353535;
+  height: 100%;
+  hr {
+    border: none;
+    background-color: var(--energy-yellow);
+    color: var(--energy-yellow);
+    height: 0.3rem;
+    margin: 0 5.5rem;
+  }
+  &-profile {
+    background-color: #222222;
+    height: 100%;
+    width: 30%;
+    &-user {
+      padding-top: 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__avatar {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 7rem;
+        background-color: #fff;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+      }
+      &__name {
+        color: var(--white);
+        font-size: 3rem;
+      }
+    }
+    &-menu {
+      padding-left: 5.5rem;
+      font-size: 2rem;
+      &__item {
+        margin: 0;
+        display: flex;
+        padding-top: 3.7rem;
+        color: rgba(var(--white-rgb), 0.7);
+        &:hover {
+          color: var(--tulip-tree);
+          cursor: pointer;
+        }
+        &:last-child {
+          color: var(--punch);
+        }
+        p {
+          margin: 0;
+        }
+        &__icon {
+          margin-left: 1rem;
+          height: 1.7rem;
+        }
+      }
+    }
+  }
+}
