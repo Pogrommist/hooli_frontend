@@ -52,7 +52,7 @@ export default function() {
 
           <div className="header-profile" onClick={() => setHandleProfileClick(!profileMenuOpened)}>
             <p className="header-profile__name">{`${first_name} ${last_name}`}</p>
-            <p className="header-profile__avatar"></p>
+            <img className="header-profile__avatar" src={user.avatar_url} />
             { profileMenuOpened && (
               <div className="header-profile-dropdown">
                 { dropdownItems.map((item, i) => (

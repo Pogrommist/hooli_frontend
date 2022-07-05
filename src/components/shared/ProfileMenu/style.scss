@@ -21,7 +21,7 @@
         width: 10rem;
         height: 10rem;
         border-radius: 7rem;
-        background-color: #fff;
+        background-size: contain;
         margin: 0 auto;
         display: flex;
         justify-content: center;
@@ -45,6 +45,34 @@
         color: var(--white);
         font-size: 3rem;
       }
+      &-select-image {
+        &-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;          
+        }
+        &__button {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 5rem;
+          background-image: url('/assets/images/icons/home/add_btn.svg');
+          cursor: pointer;
+          border: none;
+          position: absolute;
+          bottom: -1rem;
+          right: 0;
+          &--accept {
+            background-image: url('/assets/images/icons/home/accept_btn.svg');
+            left: 0;
+          }
+        }
+        &__preview {
+          border-radius: 7rem;
+          width: 10rem;
+          height: 10rem;
+        }
+      }
+
     }
     &-menu {
       padding-left: 5.5rem;

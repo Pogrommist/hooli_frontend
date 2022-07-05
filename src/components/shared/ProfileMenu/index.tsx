@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from 'react-router';
-import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
+import ReactImageUploading, { ImageListType } from "react-images-uploading";
 import Header from "../Header"
 import { useAuth } from '../../../services/hooks/use-auth';
 import ExitIcon from '../../../assets/images/icons/header/exit_icon.svg'
-import AddIcon from '../../../assets/images/icons/home/add_btn.svg'
 import "./style.scss"
 
 
@@ -13,9 +12,17 @@ import "./style.scss"
 export default function ProfileMenu() {
 
   const navigate = useNavigate()
-  const { logout, user } = useAuth()
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const { logout, user, uploadAvatar } = useAuth()
   const { first_name, last_name } = user || null
+  const [images, setImages] = React.useState([]);
+  const maxNumber = 69;
+
+  const onChange = (imageList: ImageListType) => setImages(imageList as never[]);
+
+  const handleUploadAvatar = async () => {
+    await uploadAvatar(images[0].dataURL)
+    setImages([])
+  }
 
   const logoutHandler = () => logout(() => navigate('/'))
 
@@ -24,27 +31,58 @@ export default function ProfileMenu() {
     { name: 'Security & privacy', className: 'account-settings-profile-menu__item-link', path: '/' },
     { name: 'Settings', className: 'account-settings-profile-menu__item-link', path: '/' },
     { name: 'About Hooli', className: 'account-settings-profile-menu__item-link', path: '/' },
-
   ]
 
-   const getLinkClass = (navData, element) => {
-    console.log('navData', navData)
-     return navData.isActive ? `${element.className} ${element.className}--active` : element.className
-}
+  const getLinkClass = (navData, element) => {
+    return navData.isActive ? `${element.className} ${element.className}--active` : element.className
+  }
+  
   return (
     <>
       <Header/>
       <div className="account-settings">
         <div className="account-settings-profile">
           <div className="account-settings-profile-user">
-            <div className="account-settings-profile-user__avatar">
+            <div className="account-settings-profile-user__avatar" style={{backgroundImage: `url(${user.avatar_url})`}}>
               <div className="account-settings-profile-user__avatar__image">
-                <form>
-                  <label htmlFor="actual-btn">
-                  <input type="file" name="picture" id="actual-btn" hidden/>
-                  <img className="editavatar-image" src={AddIcon} alt="edit" />
-                  </label>
-                </form>
+              <ReactImageUploading
+                value={images}
+                onChange={onChange}
+                maxNumber={maxNumber}
+              >
+                {({
+                  imageList,
+                  onImageUpload,
+                  isDragging,
+                  dragProps
+                }) => (
+                  // write your building UI
+                  <div className="account-settings-profile-user-select-image-wrapper">
+                    <button
+                      className="account-settings-profile-user-select-image__button"
+                      style={isDragging ? { color: "red" } : undefined}
+                      onClick={onImageUpload}
+                      {...dragProps}
+                    >
+                    </button>
+                    { 
+                      images.length > 0 && (
+                        <span 
+                          className="account-settings-profile-user-select-image__button account-settings-profile-user-select-image__button--accept"
+                          onClick={handleUploadAvatar}
+                          ></span>
+                        )
+                    }
+                    {imageList.map((image, index) => (
+                      <div key={index}>
+                        <img src={image.dataURL} alt="avatar preview" className="account-settings-profile-user-select-image__preview" />
+                        <div className="image-item__btn-wrapper">
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </ReactImageUploading>
               </div>
             </div>
             <p className="account-settings-profile-user__name">{`${first_name} ${last_name}`}</p>
@@ -59,7 +97,7 @@ export default function ProfileMenu() {
               ))
             }
             <div className="account-settings-profile-menu__item account-settings-profile-menu__item--exit-link" onClick={() => logoutHandler()}>
-              <p className="account-settings-profile-menu__item-link account-settings-profile-menu__item-link--exit-link">Exit</p>
+              <p className="account-settings-profile-menu__item-link account-settings-profile-menu__item-link--exit-link">Log out</p>
               <img src={ExitIcon} alt='Exit from account' className='account-settings-profile-menu__item-link__icon' />  
             </div>
           </div>

@@ -78,8 +78,8 @@
       width: 5rem;
       height: 5rem;
       border-radius: 3rem;
-      background-color: var(--white);
       margin-left: 2rem;
+      z-index: 1;
     }
     &-dropdown {
       position: absolute;

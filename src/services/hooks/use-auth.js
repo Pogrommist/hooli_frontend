@@ -1,5 +1,5 @@
 import React, { useState, useContext, createContext } from "react";
-import { signInRequest, signUpRequest } from "../api/auth";
+import { signInRequest, signUpRequest, uploadAvatarRequest } from "../api/auth";
 
 export const authContext = createContext();
 
@@ -22,6 +22,7 @@ function useProvideAuth() {
     if (response.data) localStorage.setItem('user', JSON.stringify(response.data))
     return response
   };
+  
   const signUp = async params => {
     const response = await signUpRequest(params)
     setUser(response.data);
@@ -36,12 +37,25 @@ function useProvideAuth() {
     callback()
   }
 
+  const uploadAvatar = async avatar => {
+    const response = await uploadAvatarRequest(avatar)
+    await setUser(response.data);
+    await saveUserLocal(response.data)
+
+    return response
+  };
+
+  const saveUserLocal = async userData => {
+    await localStorage.setItem('user', JSON.stringify(userData))
+  }
+
   return {
     user,
     signIn,
     signUp,
     logout,
     validateToken,
-    setUserLocal
+    setUserLocal,
+    uploadAvatar
   };
 }
