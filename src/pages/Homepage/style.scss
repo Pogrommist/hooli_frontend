@@ -39,6 +39,10 @@
       align-items: center;
       flex-direction: column;
       justify-content: center;
+      &__input {
+        height: auto;
+        margin: auto;
+      }
       &-wrapper {
         margin-left: 10rem;
         position: relative;

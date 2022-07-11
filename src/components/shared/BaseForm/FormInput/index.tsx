@@ -17,7 +17,7 @@ const FormInput:React.FC<FormInputType> = ({label, validation={}, register, type
 	return (
 	<div className="base-form-input-field">
 		{label && <label>{label}</label>}
-		<input className={`'base-form__input' ${className} ${hasError ? `${className}--invalid` : ''}`} type={type} placeholder={placeholder} {...register(name, validation)} defaultValue={defaultValue} />
+		<input className={`base-form__input ${className} ${hasError ? 'base-form__input--invalid' : ''}`} type={type} placeholder={placeholder} {...register(name, validation)} defaultValue={defaultValue} />
 		{hasError && (<p className="base-form__input__error">{hasError.message}</p>)}
 	</div>
 )
