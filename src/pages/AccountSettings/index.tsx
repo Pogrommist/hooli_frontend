@@ -3,10 +3,12 @@ import ProfileMenu from "../../components/shared/ProfileMenu";
 import Header from "../../components/shared/Header";
 import { useAuth } from "../../services/hooks/use-auth";
 import { useForm } from "react-hook-form";
+import { UserUpdateParams } from "../../models/user.model";
 import FormInput from '../../components/shared/BaseForm/FormInput';
 import BaseModal from "../../components/shared/BaseModal";
 import EditIcon  from '../../assets/images/icons/home/edit_icon.svg'
 import Logo from '../../assets/images/logo.svg'
+
 
 import "./style.scss"
 
@@ -17,11 +19,15 @@ interface UserInfoField {
 }
 const AccountSettings = () => {
 
-  const { user } = useAuth()
+  const { user, updateUserSettings } = useAuth()
   const [ modalOpened, setModalOpened ] = useState(false)
   const handleOpen = () => setModalOpened(true)
   const handleClose = () => setModalOpened(false)
-  const handleFormSubmit = values => console.log('values', values);
+  const handleFormSubmit = async (userData: UserUpdateParams) => {
+    await updateUserSettings(userData)
+    setModalOpened(false)
+  }
+
   const { register, handleSubmit, formState: { errors } } = useForm()
 
   const userInfoFields:Array<UserInfoField> = [
@@ -64,8 +70,8 @@ const AccountSettings = () => {
               </div>
               <div className="base-modal-root-content-body">
                 <form onSubmit={handleSubmit(handleFormSubmit)} className="account-settings-content-user-info-form">
-                  <FormInput name="first_name" register={register} placeholder='First name' hasError={errors.first_name} type="text" />
-                  <FormInput name="last_name" register={register} placeholder='Last name' hasError={errors.last_name} type="text" />
+                  <FormInput name="first_name" register={register} placeholder='First name' hasError={errors.first_name} type="text" defaultValue={user.first_name} />
+                  <FormInput name="last_name" register={register} placeholder='Last name' hasError={errors.last_name} type="text" defaultValue={user.last_name} />
                   <div className="base-form-input-field account-settings-content-user-info-form__submit-button">
                     <button className="base-form__action_item__button">Update</button>
                   </div>

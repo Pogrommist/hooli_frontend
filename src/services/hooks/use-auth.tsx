@@ -1,7 +1,8 @@
 import React, { useState, useContext, createContext } from "react";
-import { signInRequest, signUpRequest, uploadAvatarRequest } from "../api/auth";
+import { signInRequest, signUpRequest, uploadAvatarRequest, updateUserSettingsRequest } from "../api/auth";
+import { User, UserSignInParams, UserSignUpParams, UserUpdateParams } from "../../models/user.model";
 
-export const authContext = createContext();
+export const authContext = createContext(null);
 
 export function ProvideAuth({ children }) {
   const auth = useProvideAuth();
@@ -13,9 +14,9 @@ export const useAuth = () => useContext(authContext);
 function useProvideAuth() {
   const [user, setUser] = useState({});
 
-  const setUserLocal = userData => setUser(userData)
+  const setUserLocal = (userData: User) => setUser(userData)
 
-  const signIn = async params => {
+  const signIn = async (params:UserSignInParams) => {
     const response = await signInRequest(params)
     setUser(response.data);
     localStorage.setItem('token', response.headers.authorization)
@@ -23,21 +24,21 @@ function useProvideAuth() {
     return response
   };
   
-  const signUp = async params => {
+  const signUp = async (params: UserSignUpParams) => {
     const response = await signUpRequest(params)
     setUser(response.data);
     return response
   };
 
-  const validateToken = () => localStorage.getItem('token') !== null
+  const validateToken = ():boolean => localStorage.getItem('token') !== null
 
-  const logout = callback => {
+  const logout = (callback: Function) => {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
     callback()
   }
 
-  const uploadAvatar = async avatar => {
+  const uploadAvatar = async (avatar:string) => {
     const response = await uploadAvatarRequest(avatar)
     await setUser(response.data);
     await saveUserLocal(response.data)
@@ -45,8 +46,16 @@ function useProvideAuth() {
     return response
   };
 
-  const saveUserLocal = async userData => {
+  const saveUserLocal = async (userData:User) => {
     await localStorage.setItem('user', JSON.stringify(userData))
+  }
+
+  const updateUserSettings = async (userData: UserUpdateParams) => {
+    const response = await updateUserSettingsRequest(userData)
+    await setUser(response.data);
+    await saveUserLocal(response.data)
+    
+    return response
   }
 
   return {
@@ -56,6 +65,7 @@ function useProvideAuth() {
     logout,
     validateToken,
     setUserLocal,
-    uploadAvatar
+    uploadAvatar,
+    updateUserSettings
   };
 }

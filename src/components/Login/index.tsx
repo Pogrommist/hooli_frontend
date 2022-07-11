@@ -5,7 +5,7 @@ import FormInput from '../shared/BaseForm/FormInput';
 import { BaseForm } from '../shared/BaseForm';
 import { LoginFormActions } from './LoginFormActions';
 import Logo from '../../assets/images/logo.svg'
-import { useAuth } from '../../services/hooks/use-auth.js'
+import { useAuth } from '../../services/hooks/use-auth'
 import './style.scss'
 
 const InputBaseValidation =
@@ -27,7 +27,7 @@ const LoginPage:React.FC<{}> = () => {
     const response = await signIn(data)
     if (typeof response.headers.authorization !== 'undefined') navigate('/home')
   }
-  
+
   return (
     <div className='site-background'>
       <h1 className='base-greeting'>Welcome to Hooli!</h1>
