@@ -5,7 +5,7 @@ import FormInput from '../shared/BaseForm/FormInput';
 import { BaseForm } from '../shared/BaseForm';
 import { LoginFormActions } from './LoginFormActions';
 import Logo from '../../assets/images/logo.svg'
-import { useAuth } from '../../services/hooks/use-auth.js'
+import { useAuth } from '../../services/hooks/use-auth'
 import './style.scss'
 
 const InputBaseValidation =
@@ -27,15 +27,15 @@ const LoginPage:React.FC<{}> = () => {
     const response = await signIn(data)
     if (typeof response.headers.authorization !== 'undefined') navigate('/home')
   }
-  
+
   return (
     <div className='site-background'>
       <h1 className='base-greeting'>Welcome to Hooli!</h1>
       <BaseForm className='login-page-form' onSubmit={handleSubmit(onSubmit)}>
         <img src={Logo} className="base-form__logo"/>
         <div className="base-form__inputs">
-          <FormInput name="email" validation={InputBaseValidation} register={register} placeholder='E-mail' hasError={errors.email} type="email"/>
-          <FormInput type="password" validation={InputBaseValidation} name="password" register={register} placeholder="Password" hasError={errors.password} className="login-page-form__input"/>
+          <FormInput name="email" validation={InputBaseValidation} register={register} placeholder='E-mail' hasError={errors.email} type="email" className="login-page-form__input" />
+          <FormInput type="password" validation={InputBaseValidation} name="password" register={register} placeholder="Password" hasError={errors.password} className="login-page-form__input" />
         </div>
         <LoginFormActions disabled={!isValid}/>
       </BaseForm>

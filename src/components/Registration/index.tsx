@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { BaseForm } from "../shared/BaseForm";
 import FormInput from "../shared/BaseForm/FormInput";
 import { RegistrationFormActions } from "./RegistrationFormActions";
-import { useAuth } from '../../services/hooks/use-auth.js'
+import { useAuth } from '../../services/hooks/use-auth'
 import Logo from '../../assets/images/logo.svg'
 import "./style.scss";
 

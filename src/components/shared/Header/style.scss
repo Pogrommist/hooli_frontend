@@ -12,6 +12,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding: 2rem 0;
   }
   &__logo{
     width: 8rem;
@@ -78,8 +79,8 @@
       width: 5rem;
       height: 5rem;
       border-radius: 3rem;
-      background-color: var(--white);
       margin-left: 2rem;
+      z-index: 1;
     }
     &-dropdown {
       position: absolute;
