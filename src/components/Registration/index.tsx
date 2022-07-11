@@ -40,7 +40,7 @@ const Registration: React.FC<{}> = () => {
   return (
     <div className='site-background'>
       <h1 className='base-greeting'>Welcome to Hooli!</h1>
-      <BaseForm onSubmit={handleSubmit(onSubmit)}>
+      <BaseForm onSubmit={handleSubmit(onSubmit)} className='registration-form'>
         <img src={Logo} className="base-form__logo" />
         <div className="base-form__inputs">
           <FormInput name="first_name" validation={InputBaseValidation} register={register} placeholder="First name" hasError={errors.first_name}/>

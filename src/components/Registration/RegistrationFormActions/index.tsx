@@ -10,7 +10,7 @@ export const RegistrationFormActions:React.FC<RegistrationFormActionsType> = ({ 
 		<div className="base-form__actions">
 			<div className="base-form__action_item">
 				<input type="checkbox" className="base-form__action_item__checkbox" />
-				<span className="base-form__action_item__link">I agree witn <a href="#">terms and conditions</a></span>
+				<span className="base-form__action_item__link">I agree with <a href="#">terms and conditions</a></span>
 			</div>
 
 			<div className="base-form__action_item">
